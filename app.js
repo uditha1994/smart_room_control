@@ -47,4 +47,64 @@ updateConnectionStatus(false);
 //listen for connection state changes
 database.ref('.info/connected').on('value', (snapshot) => {
     updateConnectionStatus(snapshot.val());
-})
+});
+
+//function to update device status
+function updateDeviceStatus(device, status){
+    const statusText = status ? 'ON' : 'OFF';
+    const statusClass = status ? 'on' : 'off';
+
+    //update specific device display
+    if(device === 'light'){
+        lightStateusText.textContent = statusText;
+        lightStateusText.className = statusClass;
+        roomLightStatus.textContent = statusText;
+        roomLightStatus.className = statusClass;
+        lightToggle.checked = status;
+
+    } else if(device === 'fan'){
+        fanStateusText.textContent = statusText;
+        fanStateusText.className = statusClass;
+        roomFanStatus.textContent = statusText;
+        roomFanStatus.className = statusClass;
+        fanToggle.checked = status;
+        
+    } else if(device === 'tv'){
+        tvStateusText.textContent = statusText;
+        tvStateusText.className = statusClass;
+        roomTvStatus.textContent = statusText;
+        roomTvStatus.className = statusClass;
+        tvToggle.checked = status;
+        
+    }
+    //update last updated time
+    lastUpdated.textContent = new Date().toLocaleTimeString();
+}
+
+//listen for changes in firebase
+database.ref('room').on('value', (snapshot) => {
+    const roomData = snapshot.val();
+    if(roomData){
+        updateDeviceStatus('light', roomData.light);
+        updateDeviceStatus('fan', roomData.fan);
+        updateDeviceStatus('tv', roomData.tv);
+    }
+});
+
+//toggle handlers
+lightToggle.addEventListener('change', (e) => {
+    database.ref('room/light').set(e.target.checked);
+});
+
+fanToggle.addEventListener('change', (e) => {
+    database.ref('room/fan').set(e.target.checked);
+});
+
+tvToggle.addEventListener('change', (e) => {
+    database.ref('room/tv').set(e.target.checked);
+});
+
+//initialize all toggles to off
+lightToggle.checked = false;
+fanToggle.checked = false;
+tvToggle.checked = false;
