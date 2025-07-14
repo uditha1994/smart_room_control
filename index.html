@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Room Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <header class="dashboard-header">
+            <h1>Smart Room Control</h1>
+            <div class="connection-status" id="connectionStatus">
+                <span class="status-dot"></span>
+                <span>Connecting...</span>
+            </div>
+        </header>
+
+        <div class="controls-grid">
+            <!-- light control -->
+            <div class="control-card" id="lightControl">
+                <div class="control-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Room Light</h3>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="lightToggle" 
+                    class="toggle-input">
+                    <label for="lightToggle" class="toggle-label"></label>
+                </div>
+                <div class="status-indicator">
+                    Status: <span id="lightStatusText">OFF</span>
+                </div>
+            </div>
+
+            <!-- fan control -->
+            <div class="control-card" id="fanControl">
+                <div class="control-icon">
+                    <i class="fas fa-fan"></i>
+                </div>
+                <h3>Ceiling Fan</h3>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="fanToggle" 
+                    class="toggle-input">
+                    <label for="fanToggle" class="toggle-label"></label>
+                </div>
+                <div class="status-indicator">
+                    Status: <span id="fanStatusText">OFF</span>
+                </div>
+            </div>
+
+            <!-- tv control -->
+            <div class="control-card" id="tvControl">
+                <div class="control-icon">
+                    <i class="fas fa-tv"></i>
+                </div>
+                <h3>Ceiling Fan</h3>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="tvToggle" 
+                    class="toggle-input">
+                    <label for="tvToggle" class="toggle-label"></label>
+                </div>
+                <div class="status-indicator">
+                    Status: <span id="tvStatusText">OFF</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
