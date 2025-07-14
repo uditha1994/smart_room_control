@@ -98,3 +98,104 @@ body {
     font-size: 1.8rem;
     color: var(--primary-color);
 }
+
+.control-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+}
+
+.toggle-switch{
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-bottom: 1rem;
+}
+
+.toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.toggle-label::before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.toggle-input:checked + .toogle-label {
+    background-color: var(--success-color);
+}
+
+.toggle-input:checked + .toggle-label::before {
+    transform: translateX(26px);
+}
+
+.status-indicator {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+}
+
+.status-card {
+    background-color: var(--white-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    grid-column: 1 / -1;
+}
+
+.status-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+    text-align: center;
+}
+
+.status-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.status-label {
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.status-value {
+    color: var(--gray-color);
+}
+
+.last-updated {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--gray-color);
+    text-align: center;
+}

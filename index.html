@@ -58,7 +58,7 @@
                 <div class="control-icon">
                     <i class="fas fa-tv"></i>
                 </div>
-                <h3>Ceiling Fan</h3>
+                <h3>Television</h3>
                 <div class="toggle-switch">
                     <input type="checkbox" id="tvToggle" 
                     class="toggle-input">
@@ -68,8 +68,34 @@
                     Status: <span id="tvStatusText">OFF</span>
                 </div>
             </div>
+
+            <!-- room status -->
+             <div class="status-card">
+                <h3>Room Status</h3>
+                <div class="status-items">
+                    <div class="status-item">
+                        <span class="status-label">Light:</span>
+                        <span class="status-value" id="roomLightStatus">Off</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Fan:</span>
+                        <span class="status-value" id="roomFanStatus">Off</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">TV:</span>
+                        <span class="status-value" id="roomTvStatus">Off</span>
+                    </div>
+                </div>
+                <div class="last-updated">
+                    Last Updated: <span id="lastUpdated">Never</span>
+                </div>
+             </div>
         </div>
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
